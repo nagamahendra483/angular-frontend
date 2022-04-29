@@ -1,11 +1,15 @@
 export class Survey {
-    id: number;
     firstName: string;
     lastName: string;
-    StreetAddress: string;
-    City: string;
-    State: string;
-    ZipCode: string;
-    Telephone: string;
-    emailId: string;
+    streetAddress: string;
+    telephoneNumber: string;
+    city: string;
+    state: string;
+    zip: string;
+    email: string;
+    dateOfSurvey: Date;
+    interestedIn: string;
+    mostLiked: string[];
+    recommending: string;
+    additionalComments: string;
 }

@@ -8,27 +8,15 @@ import { Survey } from './survey';
 })
 export class SurveyService {
 
-  private baseURL = "http://localhost:8080/api/v1/surveys";
+  private baseURL = "http://localhost:8080";
 
   constructor(private httpClient: HttpClient) { }
 
   getSurveysList(): Observable<Survey[]> {
-    return this.httpClient.get<Survey[]>(`${this.baseURL}`);
+    return this.httpClient.get<Survey[]>(`${this.baseURL}/surveyDetails`);
   }
 
   createSurvey(survey: Survey): Observable<Object> {
-    return this.httpClient.post(`${this.baseURL}`, survey);
-  }
-
-  getSurveyById(id: number): Observable<Survey> {
-    return this.httpClient.get<Survey>(`${this.baseURL}/${id}`);
-  }
-
-  updateSurvey(id: number, survey: Survey): Observable<Object> {
-    return this.httpClient.put(`${this.baseURL}/${id}`, survey);
-  }
-
-  deleteSurvey(id: number): Observable<Object> {
-    return this.httpClient.delete(`${this.baseURL}/${id}`);
+    return this.httpClient.post(`${this.baseURL}/saveSurvey`, survey);
   }
 }

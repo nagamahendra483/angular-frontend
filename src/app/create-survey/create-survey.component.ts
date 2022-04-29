@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
   templateUrl: './create-survey.component.html',
   styleUrls: ['./create-survey.component.css']
 })
-export class CreateEmployeeComponent implements OnInit {
+export class CreateSurveyComponent implements OnInit {
 
   survey: Survey = new Survey();
+  listOptions = ["Students","Location","Campus", "Atmosphere","Dorm rooms","Sports"];
+  selectedOption: string[] = [];
   constructor(private surveyService: SurveyService,
     private router: Router) { }
 
@@ -18,11 +20,21 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   saveSurvey() {
+    this.survey.mostLiked = this.selectedOption;
     this.surveyService.createSurvey(this.survey).subscribe(data => {
       console.log(data);
       this.goToSurveyList();
     },
       error => console.log(error));
+  }
+
+  setAsSelected(option: string, isChecked: boolean){
+    if(isChecked){
+      this.selectedOption.push(option);
+    } else  {
+      const index = this.selectedOption.indexOf(option);
+      this.selectedOption.splice(index,1);
+    }
   }
 
   goToSurveyList() {

@@ -4,73 +4,97 @@
 
         <div class="form-group">
             <label> First Name*</label>
-            <input type="text" class="form-control" id="firstName" [(ngModel)]="student.firstName" name="firstName">
+            <input type="text" required class="form-control" id="firstName" [(ngModel)]="survey.firstName" name="firstName">
         </div>
 
         <div class="form-group">
             <label> Last Name*</label>
-            <input type="text" class="form-control" id="lastName" [(ngModel)]="student.lastName" name="lastName">
+            <input type="text" required class="form-control" id="lastName" [(ngModel)]="survey.lastName" name="lastName">
         </div>
 
         <div class="form-group">
             <label> Street Address*</label>
-            <input type="text" class="form-control" id="StreetAddress" [(ngModel)]="student.StreetAddress"
+            <input type="text" required class="form-control" id="StreetAddress" [(ngModel)]="survey.streetAddress"
                 name="StreetAddress">
         </div>
 
         <div class="form-group">
             <label> City*</label>
-            <input type="text" class="form-control" id="City" [(ngModel)]="student.City" name="City">
+            <input type="text" required class="form-control" id="City" [(ngModel)]="survey.city" name="City">
         </div>
 
         <div class="form-group">
             <label> State*</label>
-            <input type="text" class="form-control" id="State" [(ngModel)]="student.State" name="State">
+            <input type="text" required class="form-control" id="State" [(ngModel)]="survey.state" name="State">
         </div>
 
         <div class="form-group">
             <label> ZipCode*</label>
-            <input type="text" class="form-control" id="ZipCode" [(ngModel)]="student.ZipCode" name="ZipCode">
+            <input type="text" required class="form-control" id="ZipCode" [(ngModel)]="survey.zip" name="ZipCode">
         </div>
 
         <div class="form-group">
             <label> Telephone*</label>
-            <input type="text" class="form-control" id="Telephone" [(ngModel)]="student.Telephone" name="Telephone"
+            <input type="text" required class="form-control" id="Telephone" [(ngModel)]="survey.telephoneNumber" name="Telephone"
                 placeholder="999-999-9999">
         </div>
 
         <div class="form-group">
-            <label> Email Id</label>
-            <input type="text" class="form-control" id="emailId" [(ngModel)]="student.emailId" name="emailId">
+            <label> Email Id*</label>
+            <input type="email" required class="form-control" id="emailId" [(ngModel)]="survey.email" name="email">
         </div>
 
-        <!--<div class="form-group">
-            <label> Date</label>
-            <input type="date" class="form-control" id="Date" [(ngModel)]="student.Date" name="ZipCode">
-</div>
+        <div class="form-group">
+            <label>Date of Survey</label>
+            <input type="date" required class="form-control" id="dateOfSurvey" [(ngModel)]="survey.dateOfSurvey" name="dateOfSurvey">
+        </div>
 
-<div class=" form-group">
-    What u liked most about the Campus<br> <br>
-    <label>
-        <input type="checkbox" name="thingsliked" valued="Students">Students
-    </label><br>
-    <label>
-        <input type="checkbox" name="thingsliked" valued="Location">Location
-    </label><br>
-    <label>
-        <input type="checkbox" name="thingsliked" valued="Campus">Campus
-    </label><br>
-    <label>
-        <input type="checkbox" name="thingsliked" valued="Atmosphere">Atmosphere
-    </label><br>
-    <label>
-        <input type="checkbox" name="thingsliked" valued="Dorm rooms">Dorm rooms
-    </label><br>
-    <label>
-        <input type="checkbox" name="thingsliked" valued="Sports">Sports
-    </label><br><br>
-</div>-->
+        <div class="form-group" >
+            <label>Interested In</label>
+            <div id="interstedIn">
+                <label class="m-2">
+                    <input type="radio" [(ngModel)]="survey.interestedIn" name="interestedIn" value="Friends">
+                    Friends
+                </label>
+                <label class="m-2">
+                    <input type="radio" [(ngModel)]="survey.interestedIn" name="interestedIn" value="Television">
+                    Television
+                </label>
+                <label class="m-2">
+                    <input type="radio" [(ngModel)]="survey.interestedIn" name="interestedIn" value="Internet">
+                    Internet
+                </label>
+                <label class="m-2">
+                    <input type="radio" [(ngModel)]="survey.interestedIn" name="interestedIn" value="Others">
+                    Others
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label> Recomending Others</label>
+            <select class="m-2" name="recommending" [(ngModel)]="survey.recommending">
+                <option value="Very Likely">Very Likely</option>
+                <option value="Likely">Likely</option>
+                <option value="UnLikely">UnLikely</option>
+            </select>
+        </div>
 
+        <div class="form-group">
+            <label>Most Liked</label>
+            <br>
+            <label class="m-2" *ngFor="let option of listOptions">
+                <input type="checkbox" (change)="setAsSelected(option, $event.target.checked)" >
+                {{option}}
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>Comments</label>
+            <textarea class="form-control" id="additionalComments" [(ngModel)]="survey.additionalComments" name="additionalComments" ></textarea>
+        </div>
+
+
+       
         <button class="btn btn-success" type="submit">Submit</button>
 
     </form>

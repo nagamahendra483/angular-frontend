@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SurveyListComponent implements OnInit {
 
-  employees: Survey[];
+  surveyDetails: Survey[];
 
   constructor(private surveyService: SurveyService,
     private router: Router) { }
@@ -19,23 +19,8 @@ export class SurveyListComponent implements OnInit {
   }
 
   private getSurveys() {
-    this.SurveyService.getSurveysList().subscribe(data => {
-      this.employees = data;
+    this.surveyService.getSurveysList().subscribe(data => {
+      this.surveyDetails = data;
     });
-  }
-
-  SurveyDetails(id: number) {
-    this.router.navigate(['survey-details', id]);
-  }
-
-  updateSurvey(id: number) {
-    this.router.navigate(['update-survey', id]);
-  }
-
-  deleteSurvey(id: number) {
-    this.surveyService.deleteSurvey(id).subscribe(data => {
-      console.log(data);
-      this.getSurveys();
-    })
   }
 }
