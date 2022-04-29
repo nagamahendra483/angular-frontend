@@ -1,0 +1,35 @@
+<h2> Survey List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> First Name</th>
+            <th> Last Name </th>
+            <th> Street Address</th>
+            <th> City </th>
+            <th> State </th>
+            <th> Zip Code</th>
+            <th> Telephone </th>
+            <th> Email Id</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let survey of students">
+            <td> {{ survey.firstName }} </td>
+            <td> {{ survey.lastName }} </td>
+            <td> {{ survey.Street Address }} </td>
+            <td> {{ survey.City }} </td>
+            <td> {{ survey.State}} </td>
+            <td> {{ survey.Zip Code }} </td>
+            <td> {{ survey.Telephone }} </td>
+            <td> {{ survey.emailId }} </td>
+            <td>
+                <button (click)="updateSurvey(survey.id)" class="btn btn-info"> Update</button>
+                <button (click)="deleteSurvey(survey.id)" class="btn btn-danger" style="margin-left: 10px">
+                    Delete</button>
+                <button (click)="surveyDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">
+                    View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
