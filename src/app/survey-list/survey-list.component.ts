@@ -12,15 +12,21 @@ export class SurveyListComponent implements OnInit {
   surveyDetails: Survey[];
 
   constructor(private surveyService: SurveyService,
-    private router: Router) { }
+    private router: Router) {
+      this.getSurveys();
+  }
 
   ngOnInit(): void {
-    this.getSurveys();
   }
 
   private getSurveys() {
-    this.surveyService.getSurveysList().subscribe(data => {
-      this.surveyDetails = data;
-    });
+    if(!sessionStorage.getItem("survey-deatils")){
+      this.surveyService.getSurveysList().subscribe(data => {
+        sessionStorage.setItem("survey-deatils",JSON.stringify(data));
+        this.surveyDetails = JSON.parse(sessionStorage.getItem("survey-deatils"));
+      });
+    } else {
+      this.surveyDetails = JSON.parse(sessionStorage.getItem("survey-deatils"));
+    } 
   }
 }

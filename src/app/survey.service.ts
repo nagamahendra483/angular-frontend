@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Survey } from './survey';
 
 @Injectable({
@@ -8,15 +8,18 @@ import { Survey } from './survey';
 })
 export class SurveyService {
 
-  private baseURL = "http://localhost:8080";
+  private baseURL = "../assets/data/survey-details.json";
 
   constructor(private httpClient: HttpClient) { }
 
   getSurveysList(): Observable<Survey[]> {
-    return this.httpClient.get<Survey[]>(`${this.baseURL}/surveyDetails`);
+    return this.httpClient.get<Survey[]>(`${this.baseURL}`);
   }
 
   createSurvey(survey: Survey): Observable<Object> {
-    return this.httpClient.post(`${this.baseURL}/saveSurvey`, survey);
+    const surveyDetails: Survey[] = JSON.parse(sessionStorage.getItem("survey-deatils"));
+    const finalData: string = JSON.stringify([...surveyDetails,survey]);
+    sessionStorage.setItem("survey-deatils", finalData);
+    return of(survey);
   }
 }

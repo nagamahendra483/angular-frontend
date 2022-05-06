@@ -19,19 +19,19 @@
     </thead>
     <tbody>
         <tr *ngFor="let survey of surveyDetails">
-            <td> {{ survey.firstName }} </td>
-            <td> {{ survey.lastName }} </td>
-            <td> {{ survey.streetAddress }} </td>
-            <td> {{ survey.city }} </td>
-            <td> {{ survey.state}} </td>
-            <td> {{ survey.zip }} </td>
-            <td> {{ survey.telephoneNumber }} </td>
-            <td> {{ survey.email }} </td>
-            <td> {{ survey.dateOfSurvey }} </td>
-            <td> {{ survey.interestedIn }} </td>
-            <td> {{ survey.mostLiked?.join(",") }} </td>
-            <td> {{ survey.recommending }} </td>
-            <td> {{ survey.additionalComments }} </td>
+            <td> {{ survey.firstName || "" }} </td>
+            <td> {{ survey.lastName || "" }} </td>
+            <td> {{ survey.streetAddress || "" }} </td>
+            <td> {{ survey.city || "" }} </td>
+            <td> {{ survey.state || "" }} </td>
+            <td> {{ survey.zip || "" }} </td>
+            <td> {{ survey.telephoneNumber || "" }} </td>
+            <td> {{ survey.email || "" }} </td>
+            <td> {{ survey.dateOfSurvey || "" }} </td>
+            <td> {{ survey.interestedIn || "" }} </td>
+            <td> {{ survey.mostLiked?.join(",") || "" }} </td>
+            <td> {{ survey.recommending || "" }} </td>
+            <td> {{ survey.additionalComments || ""}} </td>
         </tr>
     </tbody>
 </table>

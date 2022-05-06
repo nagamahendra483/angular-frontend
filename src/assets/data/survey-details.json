@@ -1,0 +1,38 @@
+[
+    {
+        "firstName": "naga",
+        "lastName": "mahendra",
+        "streetAddress": "abc",
+        "telephoneNumber": "1234567890",
+        "city": "efg",
+        "state": "hij",
+        "zip": "123456",
+        "email": "test@gmail.com",
+        "dateOfSurvey": "2022-04-28",
+        "interestedIn": "Internet",
+        "mostLiked": [
+            "Student",
+            "Campus"
+        ],
+        "recommending": "Likely",
+        "additionalComments": "Done"
+    },
+    {
+        "firstName": "naveen",
+        "lastName": "kumar",
+        "streetAddress": "abc",
+        "telephoneNumber": "1234567890",
+        "city": "efg",
+        "state": "hij",
+        "zip": "123456",
+        "email": "test@gmail.com",
+        "dateOfSurvey": "2022-04-28",
+        "interestedIn": "Internet",
+        "mostLiked": [
+            "Student",
+            "Campus"
+        ],
+        "recommending": "Likely",
+        "additionalComments": "Done"
+    }
+]

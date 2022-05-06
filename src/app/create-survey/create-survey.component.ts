@@ -22,7 +22,6 @@ export class CreateSurveyComponent implements OnInit {
   saveSurvey() {
     this.survey.mostLiked = this.selectedOption;
     this.surveyService.createSurvey(this.survey).subscribe(data => {
-      console.log(data);
       this.goToSurveyList();
     },
       error => console.log(error));
@@ -42,7 +41,6 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.survey);
     this.saveSurvey();
   }
 }
