@@ -17,9 +17,10 @@ export class SurveyService {
   }
 
   createSurvey(survey: Survey): Observable<Object> {
-    const surveyDetails: Survey[] = JSON.parse(sessionStorage.getItem("survey-deatils"));
+    
+    const surveyDetails: Survey[] = JSON.parse(localStorage.getItem("survey-deatils"));
     const finalData: string = JSON.stringify([...surveyDetails,survey]);
-    sessionStorage.setItem("survey-deatils", finalData);
+    localStorage.setItem("survey-deatils", finalData);
     return of(survey);
   }
 }

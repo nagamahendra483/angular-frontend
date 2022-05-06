@@ -1,11 +1,11 @@
 [
     {
-        "firstName": "naga",
-        "lastName": "mahendra",
+        "firstName": "FirstName",
+        "lastName": "LastName",
         "streetAddress": "abc",
         "telephoneNumber": "1234567890",
-        "city": "efg",
-        "state": "hij",
+        "city": "Hyd",
+        "state": "AP",
         "zip": "123456",
         "email": "test@gmail.com",
         "dateOfSurvey": "2022-04-28",
@@ -18,12 +18,12 @@
         "additionalComments": "Done"
     },
     {
-        "firstName": "naveen",
-        "lastName": "kumar",
-        "streetAddress": "abc",
+        "firstName": "FirstName1",
+        "lastName": "LastName1",
+        "streetAddress": "AmeerPet",
         "telephoneNumber": "1234567890",
-        "city": "efg",
-        "state": "hij",
+        "city": "Hyd",
+        "state": "AP",
         "zip": "123456",
         "email": "test@gmail.com",
         "dateOfSurvey": "2022-04-28",
