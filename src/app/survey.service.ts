@@ -8,19 +8,16 @@ import { Survey } from './survey';
 })
 export class SurveyService {
 
-  private baseURL = "../assets/data/survey-details.json";
+  private baseURL = "http://java-application-349511.uc.r.appspot.com";
 
   constructor(private httpClient: HttpClient) { }
 
   getSurveysList(): Observable<Survey[]> {
-    return this.httpClient.get<Survey[]>(`${this.baseURL}`);
+    return this.httpClient.get<Survey[]>(`${this.baseURL}/surveyDetails`);
   }
 
   createSurvey(survey: Survey): Observable<Object> {
     
-    const surveyDetails: Survey[] = JSON.parse(localStorage.getItem("survey-deatils"));
-    const finalData: string = JSON.stringify([...surveyDetails,survey]);
-    localStorage.setItem("survey-deatils", finalData);
-    return of(survey);
+    return this.httpClient.post(`${this.baseURL}/saveSurvey`, survey);
   }
 }

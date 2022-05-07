@@ -7,6 +7,7 @@ import { SurveyListComponent } from './survey-list/survey-list.component';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { VolgenauComponent } from './volgenau-details/volgenau-details.component';
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 
 
 import { FormsModule } from '@angular/forms';
@@ -25,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {provide : LocationStrategy , useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

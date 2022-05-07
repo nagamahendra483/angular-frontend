@@ -20,13 +20,8 @@ export class SurveyListComponent implements OnInit {
   }
 
   private getSurveys() {
-    if(!localStorage.getItem("survey-deatils")){
-      this.surveyService.getSurveysList().subscribe(data => {
-        localStorage.setItem("survey-deatils",JSON.stringify(data));
-        this.surveyDetails = JSON.parse(localStorage.getItem("survey-deatils"));
-      });
-    } else {
-      this.surveyDetails = JSON.parse(localStorage.getItem("survey-deatils"));
-    } 
+    this.surveyService.getSurveysList().subscribe(data => {
+      this.surveyDetails = data;
+    });
   }
 }
