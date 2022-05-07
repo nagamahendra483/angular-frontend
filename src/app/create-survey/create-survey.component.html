@@ -1,55 +1,99 @@
 <div class="col-md-6 offset-md-3">
     <h3> Create Survey </h3>
-    <form (ngSubmit)="onSubmit()">
+    <form #surveyForm="ngForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
-            <label> First Name*</label>
-            <input type="text" required class="form-control" id="firstName" [(ngModel)]="survey.firstName" name="firstName">
+            <label>First Name</label>
+            <span class="alert-red">*</span>
+            <input type="text" required class="form-control" id="firstName" [(ngModel)]="survey.firstName"
+                name="firstName" #firstName="ngModel">
+
+            <span *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert-red">
+                First Name is required.
+            </span>
         </div>
 
         <div class="form-group">
-            <label> Last Name*</label>
-            <input type="text" required class="form-control" id="lastName" [(ngModel)]="survey.lastName" name="lastName">
+            <label> Last Name</label>
+            <span class="alert-red">*</span>
+            <input type="text" required class="form-control" id="lastName" [(ngModel)]="survey.lastName" name="lastName"
+                #lastName="ngModel">
+            <span *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert-red">
+                Last Name is required.
+            </span>
         </div>
 
         <div class="form-group">
-            <label> Street Address*</label>
-            <input type="text" required class="form-control" id="StreetAddress" [(ngModel)]="survey.streetAddress"
-                name="StreetAddress">
+            <label> Street Address</label>
+            <span class="alert-red">*</span>
+            <input type="text" required class="form-control" id="streetAddress" [(ngModel)]="survey.streetAddress"
+                name="streetAddress" #streetAddress="ngModel">
+            <span *ngIf="streetAddress.invalid && (streetAddress.dirty || streetAddress.touched)" class="alert-red">
+                Street Address is required.
+            </span>
         </div>
 
         <div class="form-group">
-            <label> City*</label>
-            <input type="text" required class="form-control" id="City" [(ngModel)]="survey.city" name="City">
+            <label> City</label>
+            <span class="alert-red">*</span>
+            <input type="text" required class="form-control" id="city" [(ngModel)]="survey.city" name="city"
+                #city="ngModel">
+            <span *ngIf="city.invalid && (city.dirty || city.touched)" class="alert-red">
+                City is required.
+            </span>
         </div>
 
         <div class="form-group">
-            <label> State*</label>
-            <input type="text" required class="form-control" id="State" [(ngModel)]="survey.state" name="State">
+            <label> State</label>
+            <span class="alert-red">*</span>
+            <input type="text" required class="form-control" id="state" [(ngModel)]="survey.state" name="state"
+                #state="ngModel">
+            <span *ngIf="state.invalid && (state.dirty || state.touched)" class="alert-red">
+                State is required.
+            </span>
         </div>
 
         <div class="form-group">
-            <label> ZipCode*</label>
-            <input type="text" required class="form-control" id="ZipCode" [(ngModel)]="survey.zip" name="ZipCode">
+            <label> ZipCode</label>
+            <span class="alert-red">*</span>
+            <input type="text" required class="form-control" id="zip" [(ngModel)]="survey.zip" name="zip"
+                #zip="ngModel">
+            <span *ngIf="zip.invalid && (zip.dirty || zip.touched)" class="alert-red">
+                Zip Code is required.
+            </span>
         </div>
 
         <div class="form-group">
-            <label> Telephone*</label>
-            <input type="text" required class="form-control" id="Telephone" [(ngModel)]="survey.telephoneNumber" name="Telephone"
-                placeholder="999-999-9999">
+            <label> Telephone</label>
+            <span class="alert-red">*</span>
+            <input type="text" required class="form-control" id="telephoneNumber" [(ngModel)]="survey.telephoneNumber"
+                name="telephoneNumber" placeholder="999-999-9999" #telephoneNumber="ngModel">
+            <span *ngIf="telephoneNumber.invalid && (telephoneNumber.dirty || telephoneNumber.touched)" class="alert-red">
+                Telephone is required.
+            </span>
         </div>
 
         <div class="form-group">
-            <label> Email Id*</label>
-            <input type="email" required class="form-control" id="emailId" [(ngModel)]="survey.email" name="email">
+            <label> Email Id</label>
+            <span class="alert-red">*</span>
+            <input type="email" required class="form-control" id="email" [(ngModel)]="survey.email" name="email"
+                #email="ngModel">
+            <span *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-red">
+                Email Id is required.
+            </span>
         </div>
 
         <div class="form-group">
             <label>Date of Survey</label>
-            <input type="date" required class="form-control" id="dateOfSurvey" [(ngModel)]="survey.dateOfSurvey" name="dateOfSurvey">
+            <span class="alert-red">*</span>
+            <input type="date" required class="form-control" id="dateOfSurvey" [(ngModel)]="survey.dateOfSurvey"
+                name="dateOfSurvey" #dateOfSurvey="ngModel">
+            <span *ngIf="dateOfSurvey.invalid && (dateOfSurvey.dirty || dateOfSurvey.touched)" class="alert-red">
+                Date of Survey is required.
+            </span>
         </div>
 
-        <div class="form-group" >
+        <div class="form-group">
             <label>Interested In</label>
             <div id="interstedIn">
                 <label class="m-2">
@@ -83,19 +127,17 @@
             <label>Most Liked</label>
             <br>
             <label class="m-2" *ngFor="let option of listOptions">
-                <input type="checkbox" (change)="setAsSelected(option, $event.target.checked)" >
+                <input type="checkbox" (change)="setAsSelected(option, $event.target.checked)">
                 {{option}}
             </label>
         </div>
 
         <div class="form-group">
             <label>Comments</label>
-            <textarea class="form-control" id="additionalComments" [(ngModel)]="survey.additionalComments" name="additionalComments" ></textarea>
+            <textarea class="form-control" id="additionalComments" [(ngModel)]="survey.additionalComments"
+                name="additionalComments"></textarea>
         </div>
-
-
-       
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit" [disabled]="surveyForm.invalid">Submit</button>
 
     </form>
 </div>

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CreateSurveyComponent implements OnInit {
 
   survey: Survey = new Survey();
+  isSubmitClicked = false;
   listOptions = ["Students","Location","Campus", "Atmosphere","Dorm rooms","Sports"];
   selectedOption: string[] = [];
   constructor(private surveyService: SurveyService,
@@ -20,6 +21,7 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   saveSurvey() {
+    console.log(this.survey)
     this.survey.mostLiked = this.selectedOption;
     this.surveyService.createSurvey(this.survey).subscribe(data => {
       console.log(data);
@@ -42,7 +44,10 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.survey);
     this.saveSurvey();
+  }
+
+  setClicked(){
+    this.isSubmitClicked = true;
   }
 }
