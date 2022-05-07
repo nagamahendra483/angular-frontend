@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class CreateSurveyComponent implements OnInit {
 
   survey: Survey = new Survey();
-  isSubmitClicked = false;
   listOptions = ["Students","Location","Campus", "Atmosphere","Dorm rooms","Sports"];
   selectedOption: string[] = [];
   constructor(private surveyService: SurveyService,
@@ -45,9 +44,5 @@ export class CreateSurveyComponent implements OnInit {
 
   onSubmit() {
     this.saveSurvey();
-  }
-
-  setClicked(){
-    this.isSubmitClicked = true;
   }
 }
