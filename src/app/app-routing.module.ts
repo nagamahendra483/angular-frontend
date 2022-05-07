@@ -4,14 +4,12 @@ import { SurveyListComponent } from './survey-list/survey-list.component';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { VolgenauComponent } from './volgenau-details/volgenau-details.component';
-import { CSEDeptComponent } from './cse-dept/cse-dept.component';
 
 const routes: Routes = [
   { path: 'surveys', component: SurveyListComponent },
   { path: 'create-survey', component: CreateSurveyComponent },
   { path: 'home-page', component: HomePageComponent },
   { path: 'volgenau-details', component: VolgenauComponent },
-  { path: 'cse-dept', component: CSEDeptComponent },
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
 ];
 

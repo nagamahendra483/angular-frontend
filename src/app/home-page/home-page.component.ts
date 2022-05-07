@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  title = 'About Me';
+  title = 'WELCOME TO HOME PAGE!';
   constructor(private router: Router) {
   }
 
