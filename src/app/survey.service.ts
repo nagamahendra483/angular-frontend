@@ -8,7 +8,7 @@ import { Survey } from './survey';
 })
 export class SurveyService {
 
-  private baseURL = "http://java-application-349511.uc.r.appspot.com";
+  private baseURL = "https://java-application-349511.uc.r.appspot.com";
 
   constructor(private httpClient: HttpClient) { }
 
